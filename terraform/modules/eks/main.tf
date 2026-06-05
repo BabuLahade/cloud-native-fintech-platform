@@ -4,7 +4,7 @@ resource "aws_iam_role" "cluster" {
     name = "${var.project}-${var.environment}-eks-cluster-role"
 
     assume_role_policy = jsonencode({
-        Verssion = "2012-10-17"
+        Version = "2012-10-17"
         Statement = [ 
             {
                 Effect ="Allow"
@@ -46,7 +46,7 @@ resource "aws_iam_role_policy_attachment" "nodes_cni_policy" {
   role       = aws_iam_role.nodes.name
 }
 
-resource "aws_iam_role_policy_atachment" "nodes_ecr_policy" {
+resource "aws_iam_role_policy_attachment" "nodes_ecr_policy" {
     policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
     role      = aws_iam_role.nodes.name
 }
