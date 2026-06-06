@@ -1,0 +1,33 @@
+kind : Namespace
+apiVersion : v1
+metadata :
+  name : production 
+  labels :
+    name : production 
+    app.kubernets.io/managed-by : argocd 
+
+---
+
+kind : Namespace
+apiVersion : v1
+metadata :
+  name : monitoring
+  labels :
+    name : monitoring 
+
+---
+
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: security
+  labels:
+    name: security
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: finops
+  labels:
+    name: finops
+
