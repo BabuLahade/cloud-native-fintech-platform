@@ -82,3 +82,19 @@ EKS → Prometheus → Grafana → Alertmanager → PagerDuty
 | 11 | FinOps Lambda + Cost dashboard |
 | 12 | Route53 DR + S3 CRR + AWS FIS chaos |
 | 13 | ADRs + FAILURES.md + diagrams + resume bullets |
+
+
+Phase 0  → Repo + tools + AWS setup + Terraform backend
+Phase 1  → Terraform networking (VPC, subnets, SGs, ECR, OIDC)
+Phase 2  → EKS cluster + node group + LB controller + Karpenter prereqs
+Phase 3  → 3 FastAPI microservices + Docker + ECR push
+Phase 4  → IRSA + NetworkPolicy + Secrets Manager + ESO + PDB + Pod Security
+Phase 5  → KEDA + HPA + Karpenter NodePool + EC2NodeClass (scale demos)
+Phase 6  → ArgoCD install + Applications + sync policies
+Phase 7  → Argo Rollouts + Alert API blue-green + INC-007 test
+Phase 8  → Prometheus + Grafana (4 dashboards) + Alertmanager routing
+Phase 9  → GitHub Actions pipeline + Trivy + OWASP ZAP
+Phase 10 → SLO 99.5% + Error Budget + PagerDuty + CloudWatch alarms + Runbooks
+Phase 11 → FinOps Lambda + Cost dashboard + Budgets + Tag governance
+Phase 12 → Route53 DR + S3 CRR + RDS Multi-AZ + AWS FIS chaos tests
+Phase 13 → ADRs + FAILURES.md + README + Architecture diagrams + Resume bullets

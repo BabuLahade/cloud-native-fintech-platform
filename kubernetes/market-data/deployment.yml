@@ -1,0 +1,53 @@
+kind : Deployment
+apiVesrion: apps/v1
+metadata :
+  name: market-data-ingestion
+  namespace : production 
+  labels :
+    app : market-data-ingestion
+    version : v1.0.0
+spec :
+  replicas : 1
+  selector :
+    matchLables :
+      app : market-data-ingestion
+  template :
+    metadata :
+    labels :
+      app : market-data-ingestion
+      version : v1.0.0
+
+    spec :
+      
+      ServiceAccountName : default 
+      containers : 
+        - name :  market_data-ingestion
+          image : 882083662991.dkr.ecr.ap-south-1.amazonaws.com/fintech/market-data-ingestion:v1.0.0
+          ports :
+            - containerPort : 8080
+          env :
+            - name : AWS_REGION
+              value : "ap-south-1"
+            - name : DYNAMODB_TABLE
+              value: "fintech-market-data"
+            - name : SQS_QUEUE_URL
+              value: "https://sqs.ap-south-1.amazonaws.com/882083662991/fintech-market-data"
+          resources :
+            requests :
+              cpu : "100m"
+              memory: "128Mi"
+            limits:
+              cpu : "500m"
+              memory: "512Mi"
+          livenessProbe :
+            httpGet :
+              path : /health
+              port : 8080
+            initialDelaySeconds : 10
+            periodSeconds : 30
+          readinessProbe :
+            httpGet :
+              path : /health
+              port : 8080
+            initialDelaySeconds : 5
+            periodSeconds : 10

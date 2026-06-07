@@ -1,0 +1,19 @@
+kind : Service
+apiVersion: v1
+metadata :
+  name : alert-api
+  namespace : production
+  labels : 
+    app: alert-api
+  annotations: 
+    service.beta.kubernetes.io/aws-load-balancer-type: external
+    service.beta.kubernetes.io/aws-load-balancer-nlb-target-type: ip  
+    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
+spec:
+  type : LoadBalancer
+  selector :
+    app: alert-api
+  ports:
+    - port : 80
+      targetPort: 8080
+      protocol : TCP
