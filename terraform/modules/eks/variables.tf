@@ -32,7 +32,7 @@ variable "public_subnet_ids" {
 variable "node_instance_type" {
   description = "EC2 instance type for managed node group"
   type        = string
-  default     = "t3.medium"
+  default     = "c7i-flex.large"
 }
 
 variable "node_min_size" {

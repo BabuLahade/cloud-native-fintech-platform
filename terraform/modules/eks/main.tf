@@ -1,7 +1,7 @@
 ### IAM role for eks control
 
 resource "aws_iam_role" "cluster" {
-    name = "${var.project}-${var.environment}-eks-cluster-role"
+    name = "${var.project}-${var.environment}-eks-cluster-role-001"
 
     assume_role_policy = jsonencode({
         Version = "2012-10-17"
