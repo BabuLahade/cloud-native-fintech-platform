@@ -58,32 +58,26 @@ variable "services" {
 }
 
 // phase 4 variales variable "oidc_provider_arn" {
-variable "oidc_provider_arn" {
-  description = "OIDC provider ARN from EKS module output"
-  type        = string
-}
-
-variable "oidc_provider_url" {
-  description = "OIDC provider URL from EKS module output — without https://"
-  type        = string
-}
-
 variable "sqs_queue_arn" {
-  description = "ARN of the SQS market data queue"
+  description = "SQS market data queue ARN"
   type        = string
+  default     = "arn:aws:sqs:ap-south-1:882083662991:fintech-market-data"
 }
 
 variable "market_data_table_arn" {
-  description = "ARN of fintech-market-data DynamoDB table"
+  description = "DynamoDB market data table ARN"
   type        = string
+  default     = "arn:aws:dynamodb:ap-south-1:882083662991:table/fintech-market-data"
 }
 
 variable "portfolios_table_arn" {
-  description = "ARN of fintech-portfolios DynamoDB table"
+  description = "DynamoDB portfolios table ARN"
   type        = string
+  default     = "arn:aws:dynamodb:ap-south-1:882083662991:table/fintech-portfolios"
 }
 
 variable "alerts_table_arn" {
-  description = "ARN of fintech-alerts DynamoDB table"
+  description = "DynamoDB alerts table ARN"
   type        = string
+  default     = "arn:aws:dynamodb:ap-south-1:882083662991:table/fintech-alerts"
 }
