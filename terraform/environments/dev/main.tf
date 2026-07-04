@@ -55,11 +55,15 @@ module "eks" {
   public_subnet_ids  = module.vpc.public_subnet_ids
 }
 
-# ── Phase 4: IRSA (uncomment after Phase 2 apply) ────────────────────
-# module "irsa" {
-#   source            = "../../modules/irsa"
-#   project           = var.project
-#   environment       = var.environment
-#   oidc_provider_arn = module.eks.oidc_provider_arn
-#   oidc_provider_url = module.eks.oidc_provider_url
-# }
+# ── Phase 4: IRSA ────────────────────
+module "irsa" {
+  source                = "../../modules/irsa"
+  project               = var.project
+  environment           = var.environment
+  oidc_provider_arn     = module.eks.oidc_provider_arn
+  oidc_provider_url     = module.eks.oidc_provider_url
+  sqs_queue_arn         = var.sqs_queue_arn
+  market_data_table_arn = var.market_data_table_arn
+  portfolios_table_arn  = var.portfolios_table_arn
+  alerts_table_arn      = var.alerts_table_arn
+}
