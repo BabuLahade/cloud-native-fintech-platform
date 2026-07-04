@@ -58,6 +58,7 @@ variable "services" {
 }
 
 // phase 4 variales variable "oidc_provider_arn" {
+variable "oidc_provider_arn" {
   description = "OIDC provider ARN from EKS module output"
   type        = string
 }
