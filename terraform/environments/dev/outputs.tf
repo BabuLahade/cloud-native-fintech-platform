@@ -34,3 +34,14 @@ output "cluster_endpoint" {
 output "oidc_provider_arn" {
   value = module.eks.oidc_provider_arn
 }
+output "market_data_role_arn" {
+  value = module.irsa.market_data_role_arn
+}
+
+output "portfolio_role_arn" {
+  value = module.irsa.portfolio_role_arn
+}
+
+output "alert_api_role_arn" {
+  value = module.irsa.alert_api_role_arn
+}
