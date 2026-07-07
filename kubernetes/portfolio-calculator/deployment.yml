@@ -17,7 +17,7 @@ spec:
         app: portfolio-calculator
         version: v1.0.0
     spec:
-      serviceAccountName: default
+      serviceAccountName: portfolio-sa
       containers:
         - name: portfolio-calculator
           image: 882083662991.dkr.ecr.ap-south-1.amazonaws.com/fintech/portfolio-calculator:v1.0.0
