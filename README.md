@@ -98,3 +98,6 @@ Phase 10 → SLO 99.5% + Error Budget + PagerDuty + CloudWatch alarms + Runbooks
 Phase 11 → FinOps Lambda + Cost dashboard + Budgets + Tag governance
 Phase 12 → Route53 DR + S3 CRR + RDS Multi-AZ + AWS FIS chaos tests
 Phase 13 → ADRs + FAILURES.md + README + Architecture diagrams + Resume bullets
+
+
+phase 3 working now phase 4 started 
